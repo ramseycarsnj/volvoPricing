@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Welcome to Ramsey Volvo</title>
+    <style media="screen">
+      /*COLORS*/
+      /*VOLVO BLUE: #003057*/
+      /*VOLVO BLACK: #333132*/
+
+      html, body, div, span, object, iframe,
+      h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+      a, abbr, address, cite, code,
+      del, dfn, em, img, ins, kbd, q, s, samp,
+      small, strong, sub, sup, var,
+      b, u, i, dl, dt, dd, ol, ul, li,
+      fieldset, form, label, legend,
+      table, caption, tbody, tfoot, thead, tr, th, td,
+      article, aside, canvas, details, embed,
+      figure, figcaption, footer, header, hgroup,
+      menu, nav, output, ruby, section, summary,
+      time, mark, audio, video {
+      	margin: 0;
+      	padding: 0;
+      	border: 0;
+      	font-size: 100%;
+      	font: inherit;
+      	vertical-align: baseline;
+      }
+      body {
+      	line-height: 1;
+      }
+      ol, ul {
+      	list-style: none;
+      }
+      h1 {
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        color: #003057;
+        font-size: 40px;
+      }
+      h3 {
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        color: #003057;
+        font-size: 14px;
+      }
+      table {
+        border-collapse: collapse;
+      	border-spacing: 0;
+      }
+      p {
+        margin: 20px 0;
+        line-height: 1.5;
+      }
+      .mainCta {
+        border: 1px solid #003057;
+        font-family: Arial, sans-serif;
+        font-weight: normal;
+        font-size: 16px;
+        padding: 12px;
+        text-align: center;
+        display: block;
+        background-color: #003057;
+        color: #ffffff;
+        width: 300px;
+        margin: auto;
+        text-decoration: none;
+      }
+      .secondaryCta {
+        border: 1px solid #003057;
+        font-family: Arial, sans-serif;
+        font-weight: normal;
+        height: 40px;
+        background-color: #ffffff;
+        color: #003057;
+        margin: auto;
+        text-decoration: none;
+      }
+      .social {
+        width: 30px;
+        margin: auto;
+        padding: 10px 7px 10px 7px;
+      }
+      #bodyContainer {
+        height: 100%;
+        width: 100%;
+        margin: 0 auto;
+        padding: 50px 0;
+        border: 0;
+        font-family: Arial, sans-serif;
+        font-size: 13px;
+        font-weight: normal;
+        color: #333132;
+        background-color: #003057
+      }
+      #emailBody {
+        width: 650px;
+        padding: 0px;
+        margin: auto;
+        border: 0;
+        color: #333132;
+        background-color: #ffffff;
+      }
+      #volvoIronMark {
+        width: 57px;
+        margin: auto;
+        padding: 29px;
+        display: block;
+      }
+      #ironMarkArea {
+        background-color: #000000;
+        width: 650px;
+      }
+      #emailContent {
+        display: block;
+        border: 0;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        font-size: 13px;
+        font-weight: normal;
+        color: #333132;
+        width: 650px;
+        background-color: #ffffff;
+      }
+      #salutation {
+        padding: 30px 30px 10px 30px;
+        display: block;
+      }
+      #pricingBuilder {
+        background-color: #FAFAFA;
+        width: 650px;
+        margin: 0;
+        padding: 0 0 30px 0;
+        border: 0;
+      }
+      #leftPriceContent {
+        width: 370px;
+        padding: 0 0 30px 0;
+        margin: 0;
+        border: 0;
+      }
+      #rightPriceContent {
+        width: 280px;
+        text-align: right;
+        padding: 0 0 30px 0;
+        margin: 0;
+        border: 0;
+      }
+      #modelArea {
+        font-size: 20px;
+        padding: 30px 0 0 30px;
+        vertical-align: top;
+      }
+      #priceText {
+        padding: 0px 30px 0 0;
+      }
+      #priceDisplay {
+        padding: 0 30px 0 0;
+      }
+      #imageArea {
+        margin: 15px 0;
+        padding: 0;
+        border: 0;
+        display: inline-block;
+        width: 370px;
+      }
+      #packageHeading {
+        padding: 10px 0 10px 0;
+        text-align: left;
+      }
+      #packageBuilder li {
+        text-align: left;
+      }
+      #optionsHeading {
+        padding: 10px 0 10px 0;
+        text-align: left;
+      }
+      #accessoryBuilder {
+        text-align: left;
+      }
+      #priceGuarentee {
+        padding: 20px 30px 0px 30px;
+        display: block;
+      }
+      #footer {
+        padding: 30px 0 50px 0;
+        background-color: #000000;
+      }
+      #footerTable {
+        text-align: center;
+        width: 650px;
+        margin: auto;
+        background-color: #000000;
+        color: #ffffff;
+        margin: 0px;
+        border: 0px;
+      }
+      #footerTable td {
+        vertical-align: top;
+        padding: 10px 0 0px 0;
+        margin: 0px;
+        border: 0px;
+      } #links a {
+        color: #ffffff;
+        text-decoration: none;
+        display: block;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+      #signature {
+        padding: 0 0 30px 30px;
+        line-height: 1.3;
+      }
+      #signature a {
+        color: #000000;
+      }
+      #userImage {
+        width: 120px;
+        border-radius: 100%;
+        margin: auto;
+      }
+      #signatureTable td {
+        display: inline-block;;
+      }
+      #signatureContentLeft {
+        width: 430px;
+        padding-left: 0px;
+      }
+
+      #signatureContentRight {
+        padding: 10px 0 0 0;
+        vertical-align: bottom;
+      }
+    </style>
+  </head>
+  <body>
+    <center>
+
+      <div id="bodyContainer">
+
+<div id="emailBody">
+  <table id="bodyTable">
+    <tr id="emailHeader">
+      <td>
+        <table id="ironMarkArea">
+
+          <tr>
+            <td>
+              <a href="https://volvocarsramsey.com/"><img src="http://i.imgur.com/AnRvUxM.png" alt="Volvo Cars Iron Mark" id="volvoIronMark"></a>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+
+    <!-- END OF HEADER AREA -->
+
+    <tr>
+      <td>
+
+        <table id="emailContent">
+
+          <tr>
+            <td>
+              <div id="salutation">
+                <h3>Hello <span id="customerNameDisplay">*INSERT CUSTOMER NAME*</span> ,</h3>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+              </div>
+            </td>
+          </tr>
+
+          <!-- END OF SALUTATION AREA -->
+
+          <tr>
+            <td>
+
+              <table id="pricingBuilder">
+                  <tr>
+                    <td id="leftPriceContent">
+
+
+                        <h3 id="modelArea">2017 Volvo XC90 T6 R-Design AWD</h3>
+                        <span><img src="http://i.imgur.com/ayIn3r0.jpg" alt="vehicle" id="imageArea"></span>
+                        <a href="#" class="mainCta">MORE INFO</a>
+
+
+
+                    </td>
+                    <td id="rightPriceContent">
+
+
+                        <h3 id="priceText">Your Price</h3>
+                        <h1 id="priceDisplay">$45,678</h1>
+                        <h3 id="packageHeading">With:</h3>
+                        <ul id="packageBuilder">
+                          <li>Test Item</li>
+                          <li>Test Item</li>
+                        </ul>
+
+                        <h3 id="optionsHeading">Options:</h3>
+                        <ul id="accessoryBuilder">
+                          <li>Test Item</li>
+                          <li>Test Item</li>
+                        </ul>
+
+
+                    </td>
+                  </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- END OF PRICE BUILDER SECTION -->
+
+          <tr>
+            <td>
+              <div id="priceGuarentee">
+
+                <p>
+                  Here at Ramsey Volvo, we give you our Upfront Price. Our fees are the lowest in the area and we do not charge additional unnecessary fees like "Out of State Conveyance" or for "New Car Prep". Also, we make sure our customers know that Gap Insurance is optional, NOT necessary. If you have any questions about this vehicle or would like to come in for a test drive please let me know. If you are ready, I'd be happy to schedule a time for you to come get your new Volvo.
+                </p>
+              </div>
+            </td>
+          </tr>
+
+          <!-- END OF GUARENTEE SECTION -->
+
+          <tr>
+            <td>
+              <div id="signature">
+                <table id="signatureTable">
+                  <tr>
+                    <td id="signatureContentLeft">
+                      <p>
+                        Sincerely,
+                      </p>
+                      <p>
+                        <ul>
+                          <li id="currentUser">Name Name</li>
+                          <li id="userLocation">Ramsey Volvo</li>
+                          <li id="currentUserPosition">E-Commerce Manager</li>
+                          <li id="currentUserPhone"><a href="tel:8883190377">888.319.0377</a> x <span id="currentUserExtension"></span></li>
+                          <li id="currentUserEmail"><a href="mailto:namename@ramseydealer.com">namename@ramseydealer.com</a></li>
+                        </ul>
+                      </p>
+                    </td>
+
+                    <td id="signatureContentRight">
+                      <img src="http://pictures.dealer.com/ddc/resize/250x/quality/72/sharpen/1/ddc/r/ramseysubaruramseysoa/1793/de311009994b88be56cff815939923bbx.jpg" alt="My Picture" id="userImage">
+                    </td>
+                  </tr>
+                </table>
+
+              </div>
+            </td>
+          </tr>
+
+          <!-- END OF GUARENTEE SECTION -->
+          <tr>
+            <td>
+              <div id="footer">
+
+                <table id="footerTable">
+                  <tr>
+                    <td id="socialIcons">
+                      <a href="https://www.facebook.com/RamseyVolvo/"><img src="http://i.imgur.com/SDL88zq.png" alt="facebook" class="social"></a>
+                      <a href="https://www.instagram.com/ramseyvolvo/"><img src="http://i.imgur.com/Hzw6XYB.png" alt="instagram" class="social"></a>
+                      <a href="https://twitter.com/ramseyvolvonj/"><img src="http://i.imgur.com/4ja8b7D.png" alt="twitter" class="social"></a>
+                      <a href="https://www.youtube.com/user/RamseyVolvoNJ/"><img src="http://i.imgur.com/XAVvqdd.png" alt="youtube" class="social"></a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td id="links">
+                      <a href="https://volvocarsramsey.com/" alt="Volvo Cars Ramsey">Ramsey Volvo Cars</a>
+
+                      <a href="http://www.volvocarsramsey.com/dealership/directions.htm" alt="Volvo Cars Ramsey"> 585 Rt17s Ramsey,	NJ	07446</a>
+
+                      <a href="tel:8883190377" alt="Volvo Cars Ramsey">888.319.0377</a>
+                    </td>
+                  </tr>
+                </table>
+
+              </div>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+
+
+
+
+
+  </table>
+</div>
+
+      </div>
+
+    </center>
+  </body>
+</html>

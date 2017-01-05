@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/master.css">
+    <script src="js/jquery-3.1.1.min.js" charset="utf-8"></script>
+    <script src="js/clipboard.min.js"></script>
+    <script src="js/vehicles-min.js" charset="utf-8"></script>
+    <script src="js/master-min.js" charset="utf-8"></script>
+    <title>Volvo Pricing App</title>
+  </head>
+  <body>
+
+    <div id="builderArea">
+      <nav>
+        <ul>
+          <li><a href="#nameSection">customer</a></li>
+          <li><a href="#pricingSection">pricing</a></li>
+          <li><a href="#vehicleSection">vehicle</a></li>
+          <li><a href="#accessoriesSection">accessories</a></li>
+          <li><a href="#packagesSection">packages</a></li>
+          <li><a href="#previewSection">preview</a></li>
+          <li><a href="" class="refresh" id="refreshButton">&orarr;</a></li>
+        </ul>
+        <a href="#" class="refresh btn" id="copyButton" data-clipboard-target="#copyCopy">copy</a>
+      </nav>
+      <div id="userGreet">
+        <h1>Hello <span id="usernamed"></span></h1>
+      </div>
+      <a href="#" id="nameSection"></a>
+      <div id="nameSectionContent" class="sectionContainer">
+        <h1>Customer Name</h1>
+        <input type="text" name="customerName" value="" id="customerName">
+        <br>
+      </div>
+      <a href="#" id="pricingSection"></a>
+      <div id="pricingSectionContent" class="sectionContainer">
+        <h1>Pricing</h1>
+
+        <h2>Vehicle Price</h2>
+        <input type="text" name="vehiclePrice" value="" id="txtPrice">
+        <br>
+        <h2>Price Good Until</h2>
+        <input type="text" name="goodUntil" value="" id="txtDate">
+        <br>
+        <h2>Monthly Payment</h2>
+        <input type="text" name="monthlyPayment" value="" id="txtMonth">
+        <br>
+        <h2>Lease Term</h2>
+        <input type="text" name="leaseTerm" value="" id="txtTerm">
+        <br>
+        <h2>Down Payment</h2>
+        <input type="text" name="downPayment" value="" id="txtDown">
+        <br>
+        <h2>Mileage</h2>
+        <input type="text" name="mileage" value="" id="txtMileage">
+        <br>
+        <br>
+        <br>
+
+      </div>
+      <a href="#" id="vehicleSection"></a>
+      <div id="vehicleSectionContent" class="sectionContainer">
+        <a href="#" id="vehicleReset"  onclick="return false;">&orarr;</a>
+        <h1>Vehicle</h1>
+
+      <!-- 2017 Vehicle Select -->
+
+        <!-- 2017 Model Select -->
+        <div id="modelSelect2017">
+          <h3>2017 Model Select</h3>
+          <button type="button" name="car" class="modelButton vehicleButton" value="s60">S60</button>
+          <button type="button" name="car" class="modelButton vehicleButton" value="s60Cc">S60 Cross Country</button>
+          <button type="button" name="car" class="modelButton vehicleButton" value="s90">S90</button>
+          <button type="button" name="car" class="modelButton vehicleButton" value="v60">V60</button>
+          <button type="button" name="car" class="modelButton vehicleButton" value="v60Cc">V60 Cross Country</button>
+          <button type="button" name="car" class="modelButton vehicleButton" value="v90">V90</button>
+          <button type="button" name="car" class="modelButton vehicleButton" value="xc60">XC60</button>
+          <button type="button" name="car" class="modelButton vehicleButton" value="xc90">XC90</button>
+
+        </div>
+
+        <!-- 2017 S60 Trim Select -->
+        <div id="s60TrimSelect"  class="defaultHide trimSelector">
+          <h3>2017 S60 Trim Select</h3>
+            <button type="button" name="carTrim" class="vehicleButton trimButton" value="s60DynamicFwd">Dynamic FWD</button>
+            <button type="button" name="carTrim" class="vehicleButton trimButton" value="s60DynamicAwd">Dynamic AWD</button>
+            <button type="button" name="carTrim" class="vehicleButton trimButton" value="s60Inscription">Inscription</button>
+            <button type="button" name="carTrim" class="vehicleButton trimButton" value="s60InscriptionAwd">Inscription AWD</button>
+            <button type="button" name="carTrim" class="vehicleButton trimButton" value="s60InscriptionPlatinum">Inscription Platinum</button>
+            <button type="button" name="carTrim" class="vehicleButton trimButton" value="s60InscriptionPlatinumAwd">Inscription Platinum AWD</button>
+            <button type="button" name="carTrim" class="vehicleButton trimButton" value="s60Rdesign">R-Design</button>
+        </div>
+
+        <!-- 2017 S60 Cross Country Trim Select -->
+        <div id="s60CcTrimSelect" class="defaultHide trimSelector">
+          <h3>2017 S60 Cross Country Trim Select</h3>
+            <button type="button" name="carTrim" class="vehicleButton trimButton" value="s60CcT5Awd">T5 AWD</button>
+        </div>
+
+        <!-- 2017 S90 Trim Select -->
+        <div id="s90TrimSelect" class="defaultHide trimSelector">
+          <h3>2017 S90 Trim Select</h3>
+            <button type="button" name="carTrim" class="vehicleButton trimButton" value="s90MomentumFwd">Momentum FWD</button>
+            <button type="button" name="carTrim" class="vehicleButton trimButton" value="s90MomentumAwd">Momentum AWD</button>
+            <button type="button" name="carTrim" class="vehicleButton trimButton" value="s90InscriptionFwd">Inscription FWD</button>
+            <button type="button" name="carTrim" class="vehicleButton trimButton" value="s90InscriptionAwd">Inscription AWD</button>
+
+        </div>
+
+        <!-- 2017 V60 Trim Select -->
+        <div id="v60TrimSelect" class="defaultHide trimSelector">
+          <h3>2017 V60 Trim Select</h3>
+            <button type="button" name="carTrim" class="vehicleButton trimButton" value="v60T5Fwd">T5 FWD</button>
+            <button type="button" name="carTrim" class="vehicleButton trimButton" value="v60T5Awd">T5 AWD</button>
+            <button type="button" name="carTrim" class="vehicleButton trimButton" value="v60DynamicFwd">Dynamic FWD</button>
+            <button type="button" name="carTrim" class="vehicleButton trimButton" value="v60DynamicAwd">Dynamic AWD</button>
+            <button type="button" name="carTrim" class="vehicleButton trimButton" value="v60PlatinumFwd">Platinum FWD</button>
+            <button type="button" name="carTrim" class="vehicleButton trimButton" value="v60PlatinumAwd">Platinum AWD</button>
+            <button type="button" name="carTrim" class="vehicleButton trimButton" value="v60PremierFwd">Premier FWD</button>
+            <button type="button" name="carTrim" class="vehicleButton trimButton" value="v60PremierAwd">Premier AWD</button>
+            <button type="button" name="carTrim" class="vehicleButton trimButton" value="v60RdesignAwd">R-Design Awd</button>
+
+        </div>
+
+        <!-- 2017 V60 Cross Country Trim Select -->
+        <div id="v60CcTrimSelect"  class="defaultHide trimSelector">
+          <h3>2017 V60 Cross Country Trim Select</h3>
+            <button type="button" name="carTrim" class="vehicleButton trimButton" value="v60CcPlatinum">Platinum</button>
+            <button type="button" name="carTrim" class="vehicleButton trimButton" value="v60CcT5Awd">T5 AWD</button>
+        </div>
+
+        <!-- 2017 V90 Trim Select -->
+        <div id="v90TrimSelect" class="defaultHide trimSelector">
+          <h3>2017 V90 Trim Select</h3>
+            <button type="button" name="carTrim" class="vehicleButton trimButton" value="v90T6Awd">T6 AWD</button>
+        </div>
+
+        <!-- 2017 XC60 Trim Select -->
+        <div id="xc60TrimSelect" class="defaultHide trimSelector">
+          <h3>2017 XC60 Trim Select</h3>
+            <button type="button" name="carTrim" class="vehicleButton trimButton" value="xc60DynamicT5Fwd">Dynamic T5 FWD</button>
+            <button type="button" name="carTrim" class="vehicleButton trimButton" value="xc60DynamicT5Awd">Dynamic T5 AWD</button>
+            <button type="button" name="carTrim" class="vehicleButton trimButton" value="xc60DynamicT6Awd">Dynamic T6 AWD</button>
+            <button type="button" name="carTrim" class="vehicleButton trimButton" value="xc60InscriptionT5Fwd">Inscription T5 FWD</button>
+            <button type="button" name="carTrim" class="vehicleButton trimButton" value="xc60InscriptionT5Awd">Inscription T5 AWD</button>
+            <button type="button" name="carTrim" class="vehicleButton trimButton" value="xc60InscriptionT6Awd">Inscription T6 AWD</button>
+            <button type="button" name="carTrim" class="vehicleButton trimButton" value="xc60RdesignT6Awd">R-Design T6 AWD</button>
+        </div>
+
+        <!-- 2017 XC90 Trim Select -->
+        <div id="xc90TrimSelect" class="defaultHide trimSelector">
+          <h3>2017 XC90 Trim Select</h3>
+            <button type="button" name="carTrim" class="vehicleButton trimButton" value="xc90MomentumT5Fwd">Momentum T5 FWD</button>
+            <button type="button" name="carTrim" class="vehicleButton trimButton" value="xc90MomentumT5Awd">Momentum T5 AWD</button>
+            <button type="button" name="carTrim" class="vehicleButton trimButton" value="xc90MomentumT6Awd">Momentum T6 AWD</button>
+            <button type="button" name="carTrim" class="vehicleButton trimButton" value="xc90InscriptionT6Awd">Inscription T6 AWD</button>
+            <button type="button" name="carTrim" class="vehicleButton trimButton" value="xc90InscriptionT8">Inscription T8</button>
+            <button type="button" name="carTrim" class="vehicleButton trimButton" value="xc90RdesignT5Awd">R-Design T5 AWD</button>
+            <button type="button" name="carTrim" class="vehicleButton trimButton" value="xc90RdesignT8">R-Design T8</button>
+            <button type="button" name="carTrim" class="vehicleButton trimButton" value="xc90ExcellenceT8">Excellence T8</button>
+        </div>
+
+        <!-- 2017 XC90 Trim Select -->
+        <div id="trimColorSelectContainer" class="defaultHide">
+
+
+        </div>
+
+<br><br>
+
+<!-- AVAILABILITY SECTION -->
+        <div id="availabilty">
+          <h3>Availability</h3>
+            <ul>
+              <li><label for="availablity">Available</label><br><input class="availButton"  type="radio" name="availablity" value="available" checked></li>
+              <li><label for="availablity">Order</label><br><input class="availButton" type="radio" name="availablity" value="order"></li>
+              <li><label for="availablity">Inbound</label><br><input class="availButton"  type="radio" name="availablity" value="inbound"></li>
+            </ul>
+        </div>
+      </div>
+
+
+<!-- ACCESSORIES SECTION -->
+      <a href="#" id="accessoriesSection"></a>
+      <div id="accessoriesSectionContent" class="sectionContainer">
+        <h1>Accessories</h1>
+        <div id="accessoriesContainer">
+          <h2 id="wheelHeading" class="packagesHeadings">Wheels</h2>
+            <div id="wheelArea">
+
+            </div>
+
+          <h2 id="upholstryHeading" class="packagesHeadings">Upholstry</h2>
+            <div id="upholstryArea">
+
+            </div>
+
+          <h2 id="extStylingHeading" class="packagesHeadings">Exterior Styling</h2>
+            <div id="extStylingArea">
+
+            </div>
+          <h2 id="intStylingInlayHeading" class="packagesHeadings">Interior Styling - Inlay</h2>
+            <div id="intStylingInlayArea">
+
+            </div>
+          <h2 id="intStylingSteeringWheelHeading" class="packagesHeadings">Interior Styling - Steering Wheel</h2>
+            <div id="intStylingSteeringWheelArea">
+
+            </div>
+          <h2 id="intStylingGearLeverHeading" class="packagesHeadings">Interior Styling - Gear Lever</h2>
+            <div id="intStylingGearLeverArea">
+
+            </div>
+          <h2 id="optionsArrayHeading" class="packagesHeadings">Options</h2>
+            <div id="optionsArrayArea">
+
+            </div>
+        </div>
+      </div>
+
+
+<!-- PACKAGES SECTION -->
+      <a href="#" id="packagesSection"></a>
+      <div id="packagesSectionContent" class="sectionContainer">
+        <h1>Packages</h1>
+        <div id="packagesContainer">
+
+        </div>
+      </div>
+    </div>
+
+
+<a href="#" id="previewSection"></a>
+<!-- EMAIL RENDERER SECTION -->
+
+    <div id="emailRenderer">
+
+
+      <div id="bodyContainer" style="margin: 0 auto;padding: 50px 0;border: 0;font-size: 13px;font: inherit;vertical-align: baseline;height: 100%;width: 100%;font-family: Arial, sans-serif;font-weight: normal;color: #333132;background-color: #003057;">
+
+        <div style="color: #003057;font-size: 1px;">Your Ramsey Volvo Price Quote </div>
+
+<div id="emailBody" style="margin: auto;padding: 0px;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;width: 650px;color: #333132;background-color: #ffffff;">
+  <table id="bodyTable" style="margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;border-collapse: collapse;border-spacing: 0;">
+    <tr id="emailHeader" style="margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;">
+      <td style="margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;">
+        <table id="ironMarkArea" style="margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;border-collapse: collapse;border-spacing: 0;background-color: #000000;width: 650px;">
+
+          <tr style="margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;">
+            <td style="margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;">
+              <a href="https://volvocarsramsey.com/" style="margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;"><img src="http://i.imgur.com/AnRvUxM.png" alt="Volvo Cars Iron Mark" id="volvoIronMark" style="margin: auto;padding: 29px;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;width: 57px;display: block;"></a>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+
+    <!-- END OF HEADER AREA -->
+
+    <tr style="margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;">
+      <td style="margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;">
+
+        <table id="emailContent" style="margin: 0;padding: 0;border: 0;font-size: 13px;font: inherit;vertical-align: baseline;border-collapse: collapse;border-spacing: 0;display: block;font-family: Arial, sans-serif;font-weight: normal;color: #333132;width: 650px;background-color: #ffffff;">
+
+          <tr style="margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;">
+            <td style="margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;">
+              <div id="salutation" style="margin: 0;padding: 30px 30px 10px 30px;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;display: block;">
+                <h3 style="margin: 0;padding: 0;border: 0;font-size: 14px;font: inherit;vertical-align: baseline;font-family: Arial, sans-serif;font-weight: bold;color: #003057;">Hello <span id="customerNameDisplay" style="margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;">*INSERT CUSTOMER NAME*</span> ,</h3>
+                <p style="margin: 20px 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;line-height: 1.5;">
+                  Thank you for your interest in the <span class="salutationModel">Volvo Vehicle</span>. <span id="vehicleAvailability"></span>
+                </p>
+
+                <p style="margin: 20px 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;line-height: 1.5;">
+                  Here's a price for the <span class="salutationModel">Volvo Vehicle</span>. (<span id="dateDisplay"></span>)
+                </p>
+              </div>
+            </td>
+          </tr>
+
+          <!-- END OF SALUTATION AREA -->
+
+          <tr style="margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;">
+            <td style="margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;">
+
+              <table id="pricingBuilder" style="margin: 0;padding: 0 0 30px 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;border-collapse: collapse;border-spacing: 0;background-color: #FAFAFA;width: 650px;">
+                  <tr style="margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;">
+                    <td id="leftPriceContent" style="margin: 0;padding: 0 0 30px 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;width: 370px;">
+
+
+                        <h3 id="modelArea" style="margin: 0;padding: 30px 0 0 30px;border: 0;font-size: 20px;font: inherit;vertical-align: top;font-family: Arial, sans-serif;font-weight: bold;color: #003057;">2017 Volvo Vehicle</h3>
+                        <span style="margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;"><img src="http://i.imgur.com/ayIn3r0.jpg" alt="vehicle" id="imageArea" style="margin: 15px 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;display: inline-block;width: 370px;"></span>
+                        <a href="https://volvocarsamsey.com/" class="mainCta" style="margin: auto;padding: 12px;border: 1px solid #003057;font-size: 16px;font: inherit;vertical-align: baseline;font-family: Arial, sans-serif;font-weight: normal;text-align: center;display: block;background-color: #003057;color: #ffffff;width: 300px;text-decoration: none;" id="vehicleBrochure">MORE INFO</a>
+
+
+
+                    </td>
+                    <td id="rightPriceContent" style="margin: 0;padding: 0 0 30px 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;width: 280px;text-align: right;">
+
+
+
+                        <span id="priceDisplay" style="display: block; padding: 0 0 10px 0;"></span>
+                        <span id="monthlyDisplay" style="display: block;"></span>
+                        <span id="termDisplay" style="display: block;"></span>
+                        <span id="mileageDisplay" style="display: block;"></span>
+                        <span id="downDisplay" style="display: block;"></span>
+
+
+
+                        <h3 id="packageHeading" style="margin: 0;padding: 10px 0 10px 0;border: 0;font-size: 14px;font: inherit;vertical-align: baseline;font-family: Arial, sans-serif;font-weight: bold;color: #003057;text-align: left;">With:</h3>
+                        <ul id="packageBuilder" style="margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;list-style: none;">
+
+                        </ul>
+
+                        <h3 id="optionsHeading" style="margin: 0;padding: 10px 0 10px 0;border: 0;font-size: 14px;font: inherit;vertical-align: baseline;font-family: Arial, sans-serif;font-weight: bold;color: #003057;text-align: left;">Options:</h3>
+                        <ul id="accessoryBuilder" style="margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;list-style: none;text-align: left;">
+
+                        </ul>
+
+
+                    </td>
+                  </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- END OF PRICE BUILDER SECTION -->
+
+          <tr style="margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;">
+            <td style="margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;">
+              <div id="priceGuarentee" style="margin: 0;padding: 20px 30px 0px 30px;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;display: block;">
+
+                <p style="margin: 20px 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;line-height: 1.5;">
+                  Here at Ramsey Volvo, we give you our Upfront Price. Our fees are the lowest in the area and we do not charge additional unnecessary fees like "Out of State Conveyance" or for "New Car Prep". Also, we make sure our customers know that Gap Insurance is optional, NOT necessary. If you have any questions about this vehicle or would like to come in for a test drive please let me know. If you are ready, I'd be happy to schedule a time for you to come get your new Volvo.
+                </p>
+              </div>
+            </td>
+          </tr>
+
+          <!-- END OF GUARENTEE SECTION -->
+
+          <tr style="margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;">
+            <td style="margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;">
+              <div id="signature" style="margin: 0;padding: 0 0 30px 30px;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;line-height: 1.3;">
+                <table id="signatureTable" style="margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;border-collapse: collapse;border-spacing: 0;">
+                  <tr style="margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;">
+                    <td id="signatureContentLeft" style="margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;width: 430px;padding-left: 0px;display: inline-block;">
+                      <p style="margin: 20px 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;line-height: 1.5;">
+                        Sincerely,
+                      </p>
+                      <p style="margin: 20px 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;line-height: 1.5;">
+                        <ul style="margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;list-style: none;">
+                          <li id="employeeName" style="margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;">Robert Wood</li>
+                          <li id="userLocation" style="margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;">Ramsey Volvo</li>
+                          <li id="currentUserPosition" style="margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;">E-Commerce Manager</li>
+                          <li id="currentUserPhone" style="margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;"><a href="tel:8883190377" style="margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;color: #000000;">888.319.0377</a> x <span id="currentUserExtension" style="margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;">5218</span></li>
+                          <li id="currentUserEmail" style="margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;"><a href="mailto:rwood@ramseysubaru.net" style="margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;color: #000000;" id="userEmail">rwood@ramseysubaru.net</a></li>
+                        </ul>
+                      </p>
+                    </td>
+
+                    <td id="signatureContentRight" style="margin: 0;padding: 10px 0 0 0;border: 0;font-size: 100%;font: inherit;vertical-align: bottom;display: inline-block;">
+                      <img src="http://pictures.dealer.com/ddc/resize/250x/quality/72/sharpen/1/ddc/r/ramseysubaruramseysoa/1793/de311009994b88be56cff815939923bbx.jpg" alt="My Picture" id="userImage" style="margin: auto;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;width: 120px;border-radius: 100%;">
+                    </td>
+                  </tr>
+                </table>
+
+              </div>
+            </td>
+          </tr>
+
+          <!-- END OF GUARENTEE SECTION -->
+          <tr style="margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;">
+            <td style="margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;">
+              <div id="footer" style="margin: 0;padding: 30px 0 50px 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;background-color: #000000;">
+
+                <table id="footerTable" style="margin: 0px;padding: 0;border: 0px;font-size: 100%;font: inherit;vertical-align: baseline;border-collapse: collapse;border-spacing: 0;text-align: center;width: 650px;background-color: #000000;color: #ffffff;">
+                  <tr style="margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;">
+                    <td id="socialIcons" style="margin: 0px;padding: 10px 0 0px 0;border: 0px;font-size: 100%;font: inherit;vertical-align: top;">
+                      <a href="https://www.facebook.com/RamseyVolvo/" style="margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;"><img src="http://i.imgur.com/SDL88zq.png" alt="facebook" class="social" style="margin: auto;padding: 10px 7px 10px 7px;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;width: 30px;"></a>
+                      <a href="https://www.instagram.com/ramseyvolvo/" style="margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;"><img src="http://i.imgur.com/Hzw6XYB.png" alt="instagram" class="social" style="margin: auto;padding: 10px 7px 10px 7px;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;width: 30px;"></a>
+                      <a href="https://twitter.com/ramseyvolvonj/" style="margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;"><img src="http://i.imgur.com/4ja8b7D.png" alt="twitter" class="social" style="margin: auto;padding: 10px 7px 10px 7px;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;width: 30px;"></a>
+                      <a href="https://www.youtube.com/user/RamseyVolvoNJ/" style="margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;"><img src="http://i.imgur.com/XAVvqdd.png" alt="youtube" class="social" style="margin: auto;padding: 10px 7px 10px 7px;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;width: 30px;"></a>
+                    </td>
+                  </tr>
+
+                  <tr style="margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;">
+                    <td id="links" style="margin: 0px;padding: 10px 0 0px 0;border: 0px;font-size: 100%;font: inherit;vertical-align: top;">
+                      <a href="https://volvocarsramsey.com/" alt="Volvo Cars Ramsey" style="margin: 0;padding: 0;border: 0;font-size: 14px;font: inherit;vertical-align: baseline;color: #ffffff;text-decoration: none;display: block;line-height: 1.5;">Ramsey Volvo Cars</a>
+
+                      <a href="http://www.volvocarsramsey.com/dealership/directions.htm" alt="Volvo Cars Ramsey" style="margin: 0;padding: 0;border: 0;font-size: 14px;font: inherit;vertical-align: baseline;color: #ffffff;text-decoration: none;display: block;line-height: 1.5;"> 585 Rt17s Ramsey,	NJ	07446</a>
+
+                      <a href="tel:8883190377" alt="Volvo Cars Ramsey" style="margin: 0;padding: 0;border: 0;font-size: 14px;font: inherit;vertical-align: baseline;color: #ffffff;text-decoration: none;display: block;line-height: 1.5;">888.319.0377</a>
+                    </td>
+                  </tr>
+                </table>
+
+              </div>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+
+
+
+
+
+  </table>
+</div>
+
+      </div>
+
+
+    </div>
+
+<textarea id="copyCopy">
+
+</textarea>
+    <!-- Clipboard Functionality -->
+
+
+      <script type="text/javascript">
+$('#copyButton').click(function() {
+  var emailContentRenderer = document.getElementById('emailRenderer').innerHTML;
+  $('#copyCopy').val(emailContentRenderer);
+});
+
+        var clipboard = new Clipboard('.btn');
+        clipboard.on('success', function(e) {
+            console.log(e);
+        });
+        clipboard.on('error', function(e) {
+            console.log(e);
+        });
+
+
+      </script>
+
+  </body>
+</html>
