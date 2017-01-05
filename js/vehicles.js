@@ -16,6 +16,7 @@ var fullVehicleArray = [];
 
 // Vehicle Building Area
 
+
 // BEGIN S60
   // BEGIN DYNAMIC
     // BEGIN DYNAMIC T5 AWD
